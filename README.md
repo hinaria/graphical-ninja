@@ -35,7 +35,7 @@ Using the library is quite simple. Refer to the [documentation](http://internal.
 	// GraphicalNinja that binds to the current process.
 	auto ninja = new GraphicalNinja();
 	
-	// Locates the first graphics device found. GraphicalNinja::HookOne() returns a 
+	// Locates the first graphics device found. GraphicalNinja::FindOne() returns a 
 	// GraphicalAbstractions::GraphicsDevice or nullptr if a graphics device couldn't be
 	// found.
 	auto graphics = ninja->FindOne();
