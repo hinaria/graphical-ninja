@@ -25,9 +25,14 @@ graphical-ninja does not have any issues working with the following anti-cheat e
 - AhnLab HackShield (checked January 2012)
 - nProtect GameGuard (checked January 2012)
 
-If this changes please [file an issue](http://internal.freedompeace.net/projects/graphical-ninja/issues) and I'll update the information above and maybe work on a fix. Make sure graphical-ninja is causing the detection and not what you choose to do with it. Other anti-cheat engines have not been detected.
-
-I don't condone cheating. Don't use cheats unless you're in single-player mode or on LAN with friends.
+Some cheat engines will throw up if you try to add a callback to a protected function (because
+`graphical-ninja` will patch the function assembly code to create a codecave). For example, you
+might be able to add a callback to the `PostEndScene` function but not the
+`Direct3dPreSetStreamSource` function on some cheat engines. Please
+[file an issue](http://internal.freedompeace.net/projects/graphical-ninja/issues) if the above
+information is incorrect and I'll update the information above and maybe work on a fix. Make sure
+graphical-ninja is causing the detection and not what you choose to do with it. Other anti-cheat
+engines have not been detected.
 
 ## usage
 Using the library is quite simple. Refer to the [documentation](http://internal.freedompeace.net/projects/graphical-ninja/docs):
