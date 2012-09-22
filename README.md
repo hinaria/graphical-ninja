@@ -6,7 +6,7 @@ A C++ library that allows you to hook into the rendering pipeline of DirectX 8-1
 **Note (September 2012): This library is currently hosted on a private git server. I've been asked to put the readme onto GitHub from a few users. graphical-ninja and its dependencies may become an open source library in the near future.**
 
 ## installation
-graphical-ninja depends on `freedompeace/graphical-abstractions`, `freedompeace/x64-detours` and [`poco 1.4.3p1`](https://sourceforge.net/projects/poco/files/sources/poco-1.4.3/poco-1.4.3p1-all.tar.gz/download). Place them in `dep/{library}`.
+graphical-ninja depends on `freedompeace/graphical-abstractions`, `freedompeace/x64-detours`. Place each dependency in its own directory `dep/{library}`, relative to the working directory.
 
 Assuming you've got `make` and `gcc`, build the lib and headers and reference them in your own project:
 
