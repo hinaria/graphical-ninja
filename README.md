@@ -10,13 +10,15 @@ graphical-ninja depends on `freedompeace/graphical-abstractions`, `freedompeace/
 
 Assuming you've got `make` and `gcc`, build the lib and headers and reference them in your own project:
 
-	$ cd ~/graphical-ninja
-	$ make lib
+```bash
+$ cd ~/graphical-ninja
+$ make lib
+```
 
 And optionally, unit tests:
-
-	$ make tests 
-
+```bash
+$ make tests 
+```
 ## anti-cheat
 graphical-ninja does not have any issues working with the following anti-cheat engines:
 
@@ -37,35 +39,36 @@ engines have not been detected.
 ## usage
 Using the library is quite simple. Refer to the [documentation](http://internal.freedompeace.net/projects/graphical-ninja/docs):
 
-	// GraphicalNinja that binds to the current process.
-	auto ninja = new GraphicalNinja();
-	
-	// Locates the first graphics device found. GraphicalNinja::FindOne() returns a 
-	// GraphicalAbstractions::GraphicsDevice or nullptr if a graphics device couldn't be
-	// found.
-	auto graphics = ninja->FindOne();
+```cpp
+// GraphicalNinja that binds to the current process.
+auto ninja = new GraphicalNinja();
 
-	// Let's do something after the application renders a new scene.
-	auto callbackToken = graphics->AddCallback(
-		CallbackType.PostEndScene,
-		(auto device)
-		{
-			// `device` refers to the same object as `graphics`
-			auto backbuffer = device->GetBackBuffer();
-	
-			// ...
-			//   Perhaps copy the backbuffer into a video?
-			//     Set your imagination free!
-		});
-	
-	// Remove the callback.
-	graphics->RemoveCallback(callbackToken);
+// Locates the first graphics device found. GraphicalNinja::FindOne() returns a 
+// GraphicalAbstractions::GraphicsDevice or nullptr if a graphics device couldn't be
+// found.
+auto graphics = ninja->FindOne();
 
+// Let's do something after the application renders a new scene.
+auto callbackToken = graphics->AddCallback(
+	CallbackType.PostEndScene,
+	(auto device)
+	{
+		// `device` refers to the same object as `graphics`
+		auto backbuffer = device->GetBackBuffer();
+
+		// ...
+		//   Perhaps copy the backbuffer into a video?
+		//     Set your imagination free!
+	});
+
+// Remove the callback.
+graphics->RemoveCallback(callbackToken);
+```
 I've been frequently asked about native device access. As per the `graphical-abstractions` readme, `graphics->GetNativeDevice()`:
-
-	if (graphics->NativeDeviceType == NativeDeviceType.Direct3D11)
-		auto direct3d11 = reinterpret_cast<ID3D11Device*>(graphics->GetNativeDevice());
-
+```cpp
+if (graphics->NativeDeviceType == NativeDeviceType.Direct3D11)
+	auto direct3d11 = reinterpret_cast<ID3D11Device*>(graphics->GetNativeDevice());
+```
 
 ## license
 Shhh! graphical-ninja is still a work in progress! Don't leak our hard work! graphical-ninja will eventually be licensed under the terms of the MIT license.
